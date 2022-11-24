@@ -51,40 +51,42 @@
             </li>
           </ul>
           </div>
-
+          
+          <form action="/agendar/salvar" method="post">
           <div class="container justify-content-center mt-5">
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">Nome Completo</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1">
+              <input type="text" name="nome" class="form-control" id="exampleFormControlInput1">
             </div>
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">Telefone</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1">
+              <input type="text" name="telefone" class="form-control" id="exampleFormControlInput1">
             </div>
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">Endereço</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ex: Nome Rua, nº - Cidade">
+              <input type="text" name="endereco" class="form-control" id="exampleFormControlInput1" placeholder="Ex: Nome Rua, nº - Cidade">
             </div>
             <div class="mb-3 d-flex justify">
                 <label for="exampleFormControlInput1" class="form-label">Qual o melhor dia e horário?</label>
               </div>
             <div class="mb-3 d-flex justify-content-center">
-                <input type="date" class="form-control" id="exampleFormControlInput1">
-                <input type="time" class="form-control" id="exampleFormControlInput1">
+                <input type="date" name="data" class="form-control" id="exampleFormControlInput1">
+                <input type="time" name="hora" class="form-control" id="exampleFormControlInput1">
               </div>
             
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">O que deseja descartar?</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ex: Celular, Computador, etc.">
+                <input type="text" name="equipamentos" class="form-control" id="exampleFormControlInput1" placeholder="Ex: Celular, Computador, etc.">
               </div>
             <div class="mb-3">
               <label for="exampleFormControlTextarea1" class="form-label">Observações</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <textarea name="observacao" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
             <div class="mb-3">
-              <button class="w-100 btn btn-lg btn-success">Enviar</button>
+              <input type="submit" class="w-100 btn btn-lg btn-success" value="Salvar" />
             </div>
           </div>
+          </form>
           <br>
           <br>
 

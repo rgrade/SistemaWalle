@@ -4,6 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const agendaDao=require("./database/dao/agenda-dao");
+const denunciaDao=require("./database/dao/denuncia-dao");
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -23,9 +26,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+/*app.use(function(req, res, next) {
   next(createError(404));
-});
+});*/
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -38,6 +41,53 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.post("/agendar/salvar", async function (req, res) {
+  console.log("Salvando Registro")
+  try {
+    const retorno = await agendaDao.gravarAgenda({
+      nome: req.body.nome,
+      telefone: req.body.telefone,
+      endereco: req.body.endereco,
+      data: req.body.data,
+      hora: req.body.hora,
+      equipamentos: req.body.equipamentos,
+      observacao: req.body.observacao,
+    });
+
+    console.log("Ao salvar o registro retornou: " + retorno);
+    if (retorno == true) {
+      res.status(201);
+      res.render('agendar');
+    } else {
+      throw "NOk";
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(401).send("NOk");
+  }
+});
+
+app.post("/denunciar/salvar", async function (req, res) {
+  try {
+    const retorno = await denunciaDao.gravarDenuncia({
+      titulo: req.body.titulo,
+      local: req.body.local,
+      email: req.body.email,
+      mensagem: req.body.mensagem,
+    });
+
+    console.log("Ao salvar o registro retornou: " + retorno);
+    if (retorno == true) {
+      res.status(201);
+      res.render('denuncias');
+    } else {
+      throw "NOk";
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(401).send("NOk");
+  }
+});
 
 
 module.exports = app;

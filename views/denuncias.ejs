@@ -52,27 +52,30 @@
           </ul>
           </div>
 
+        <form action="/denunciar/salvar" method="post">
         <div class="container justify-content-center mt-5">
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Título</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1">
+            <input type="text" name="titulo" class="form-control" id="exampleFormControlInput1">
           </div>
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Local da Denuncia</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1">
+            <input type="text" name="local" class="form-control" id="exampleFormControlInput1">
           </div>
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">E-mail</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Seus dados não serão divulgados">
+            <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="Seus dados não serão divulgados">
           </div>
           <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Mensagem</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea name="mensagem" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
           </div>
           <div class="mb-3">
-            <button class="w-100 btn btn-lg btn-success">Enviar</button>
+            <input type="submit" class="w-100 btn btn-lg btn-success" value="Salvar" />
           </div>
         </div>
+        </form>
+
         <br>
         <br>
         <nav class="navbar fixed-bottom bg-dark">
