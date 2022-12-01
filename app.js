@@ -10,6 +10,7 @@ const locaisDao=require("./database/dao/locais-dao");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const { ID } = require('webpack/lib/ModuleFilenameHelpers');
 
 var app = express();
 
@@ -122,7 +123,12 @@ app.get("/locais/listar", async function (req, res) {
   const dados = await locaisDao.buscaLocais();
   console.log(dados);
   res.status(200).send(dados);
-  document.postElementById
+  let lista = document.getElementById('listaLocais');
+  for(var i = 0; i < dados.ID.length; i++){
+    let item = document.createElement('li');
+    item.appendChild(document.createTextNode(dados.identificador[i]))
+    lista.appendChild(item);
+  }
 });
 
 module.exports = app;

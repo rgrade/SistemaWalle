@@ -102,8 +102,20 @@
             function initMap() {
               map = new google.maps.Map(document.getElementById('map'), {
               center: {lat: -29.513492908314433, lng: -50.778722309922834},
-              zoom: 13
+              zoom: 12
               });
+              var novoMarcador1 = new google.maps.Marker({position: {lat: -29.513492908314433, lng: -50.778722309922834},
+                                                           map: map,
+                                                           title: "Calçados Bebece"
+                                                           });
+                var novoMarcador2 = new google.maps.Marker({position: {lat: -29.51512945208587, lng: -50.7797342884824},
+                                                           map: map,
+                                                           title: "Secretaria do Meio Ambiente"
+                                                           }); 
+                var novoMarcador3 = new google.maps.Marker({position: {lat: -29.477697258841797, lng: -50.76908431707539},
+                                                           map: map,
+                                                           title: "Escola Rui Barbosa"
+                                                           }); 
             }
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjlcGH3heBHc9WYhS4EkN8YxEC_dEJ0cA&callback=initMap" async defer></script>
