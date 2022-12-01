@@ -131,4 +131,25 @@ app.get("/locais/listar", async function (req, res) {
   }
 });
 
+const nodemailer = require('nodemailer');
+app.get("/send-email", async (req, res) => {
+  var transport = nodemailer.createTransport({
+    host: "smtp.mailtrap.io",
+    port: 2525,
+    auth: {
+      user: "34865396c569a5",
+      pass: "0232e4bd67a956"
+    }
+  });
+  var message = {
+    from: "grade.rafael@gmail.com",
+    to: "rafaelgrade@sou.faccat.br",
+    subject: "Denuncia - Sistema Walle",
+    text: "Recebemos a sua denuncia",
+  };
+
+  transport.sendMail(message);
+  res.render('denuncias');
+});
+
 module.exports = app;
