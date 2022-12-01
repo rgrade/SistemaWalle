@@ -6,14 +6,22 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@google/markerclustererplus": "^5.0.3",
+    "@googlemaps/js-api-loader": "^1.12.1",
+    "@googlemaps/map-loader": "^0.2.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
-    "ejs": "~2.6.1",
+    "ejs": "^3.1.8",
     "express": "~4.16.1",
+    "express-handlebars": "^6.0.6",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.20",
-    "sequelize": "^6.25.8"
+    "react-toastify": "^9.1.1",
+    "sequelize": "^6.25.8",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^4.11.1"
   }
 }

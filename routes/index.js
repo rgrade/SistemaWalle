@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index');
@@ -23,7 +24,7 @@ router.get('/agendar', function(req, res, next) {
 });
 
 router.get('/locais', function(req, res, next) {
-  res.render('locais');
+  res.render('locais',{});
 });
 
 module.exports = router;

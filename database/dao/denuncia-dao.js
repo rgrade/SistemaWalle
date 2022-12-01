@@ -16,6 +16,11 @@ async function gravarDenuncia(dados){
     }
 }
 
+async function buscaDenuncias() {
+    return await Denuncia.findAll();
+  }
+
 module.exports = {
-    gravarDenuncia
+    gravarDenuncia,
+    buscaDenuncias
 }

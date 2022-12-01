@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 const agendaDao=require("./database/dao/agenda-dao");
 const denunciaDao=require("./database/dao/denuncia-dao");
+const locaisDao=require("./database/dao/locais-dao");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -57,7 +58,7 @@ app.post("/agendar/salvar", async function (req, res) {
     console.log("Ao salvar o registro retornou: " + retorno);
     if (retorno == true) {
       res.status(201);
-      res.render('agendar');
+      //res.render('agendar');
     } else {
       throw "NOk";
     }
@@ -89,5 +90,38 @@ app.post("/denunciar/salvar", async function (req, res) {
   }
 });
 
+app.post("/locais/salvar", async function (req, res) {
+  try {
+    const retorno = await locaisDao.gravarLocal({
+      identificador: req.body.identificador,
+      endereco: req.body.endereco,
+      latitude: req.body.latitude,
+      longitude: req.body.longitude
+    });
+
+    console.log("Ao salvar o registro retornou: " + retorno);
+    if (retorno == true) {
+      res.status(201);
+      res.render('locais');
+    } else {
+      throw "NOk";
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(401).send("NOk");
+  }
+});
+
+app.get("/denunciar/listar", async function (req, res) {
+  const dados = await denunciaDao.buscaDenuncias();
+  console.log(dados);
+  res.status(200).send(dados);
+});
+
+app.get("/locais/listar", async function (req, res) {
+  const dados = await locaisDao.buscaLocais();
+  console.log(dados);
+  res.status(200).send(dados);
+});
 
 module.exports = app;
