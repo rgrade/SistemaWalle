@@ -122,6 +122,7 @@ app.get("/locais/listar", async function (req, res) {
   const dados = await locaisDao.buscaLocais();
   console.log(dados);
   res.status(200).send(dados);
+  document.postElementById
 });
 
 module.exports = app;

@@ -62,14 +62,27 @@
          <br />
 
           <h1>Locais para Descarte Consciênte</h1>
+          <br />
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+             Cadastrar Local
+            </button>
+            <br />
 
+          <div id="map" class="mt-4"></div>
+
+        </div>
+          <script>
+	          var map;
+		          function initMap() {
+			          map = new google.maps.Map(document.getElementById('map'), {
+				        center: {lat: -29.513492908314433, lng: -50.778722309922834},
+				        zoom: 13
+			          });
+		          }
+          </script>
+          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjlcGH3heBHc9WYhS4EkN8YxEC_dEJ0cA&callback=initMap" async defer></script>
          <br />
-                   <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Cadastrar Local
-          </button>
-          </div>
-
 
 
 <!-- Modal -->
