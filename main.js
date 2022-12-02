@@ -5,6 +5,8 @@ const PORT= process.env.PORT || 3000;
 //Cada vez que inicia o programa roda-se esse script para sincromizar o Model
 (async () => {
     await dbSetup.init();
+    await dbSetup.initEscrita();
+    await dbSetup.initLeitura();
   }) ();
   
 app.listen(PORT,function(){

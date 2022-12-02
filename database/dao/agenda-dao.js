@@ -1,9 +1,9 @@
-const database = require("../db/dbconfig");
-const Agenda = require("../models/agenda");
+const dbescrita = require("../db/dbconfig");
+const AgendaEscrita = require("../models/agenda-escrita");
 
 async function gravarAgenda(dados){
     try {
-        const novaAgenda = await Agenda.create({
+        const novaAgenda = await AgendaEscrita.create({
             nome: dados.nome,
             telefone: dados.telefone,
             endereco: dados.endereco,
